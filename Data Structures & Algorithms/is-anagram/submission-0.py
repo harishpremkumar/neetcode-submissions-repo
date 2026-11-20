@@ -1,7 +1,12 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return sorted(s) == sorted(t)
-s = Solution()
-result = s.isAnagram(s='jar',t='jam')
-print(result)
-        
+        if len(s) != len(t):
+            return False
+        countS, countT = {}, {}
+
+        for i in s:
+            countS[i] = countS.get(i, 0) + 1
+        for j in t:    
+            countT[j] = countT.get(j, 0) + 1
+        print(countT,countS)
+        return countS  == countT
